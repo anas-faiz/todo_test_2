@@ -1,3 +1,4 @@
+import HeadLiner from "./components/HeadLiner";
 import InputBox from "./components/InputBox";
 import TodoList from "./components/TodoList";
 
@@ -11,6 +12,7 @@ function App(){
             </div>
             <div>
               <InputBox/>
+              <HeadLiner/>
               <TodoList/>
             </div>
         </div>

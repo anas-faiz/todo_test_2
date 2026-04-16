@@ -1,8 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import { deleteTodo, updateStatus, type Todo } from "../utils/TodoDataSLice";
 
-const TodoList =()=>{
-    
+const TodoList =()=>{    
     const dispatch = useDispatch()
     const todo = useSelector(store => store.Todo.value);
 
@@ -18,7 +17,7 @@ const TodoList =()=>{
             {
                 todo.length == 0 ? 
                 ( <div>
-                    Add Todo Jobs
+                    Add Jobs
                 </div>):(
                     todo.map((t : Todo)=>(
                         <div key={t.id}>
