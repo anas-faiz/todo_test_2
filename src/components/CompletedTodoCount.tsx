@@ -1,8 +1,9 @@
 import { useSelector } from "react-redux"
+import type { Todo } from "../utils/TodoDataSLice"
 
 export const CompletedTodoCount = () => {
-    const todo = useSelector(store => store.Todo.value)
-    const completedCount = todo.filter(t => t.status =="green").length
+    const todo = useSelector((store : any) => store.Todo.value)
+    const completedCount = todo.filter((t: Todo)  => t.status =="green").length
     
     return (
     

@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import { deleteTodo, updateStatus, type Todo } from "../utils/TodoDataSLice";
+import { useEffect } from "react";
 
 const TodoList =()=>{    
     const dispatch = useDispatch()
@@ -11,6 +12,10 @@ const TodoList =()=>{
     const handleDeleteTodo = (id : number)=>{       
     dispatch(deleteTodo(id))
 }
+
+    useEffect(()=>{
+        localStorage.setItem("todos",JSON.stringify(todo))
+    },[todo])
 
     return(
         <div className="p-1 m-2" >
