@@ -11,8 +11,11 @@ import { addData } from "../utils/TodoDataSLice"
     const dispatch = useDispatch()
     
     const handleClick = ()=>{
-      dispatch(addData({id:Date.now(),text:input,status:"red"}))
+        const validInput = input.trim();
+        if(validInput){
+      dispatch(addData({id:Date.now(),text:validInput,status:"red"}))
       setInput("")
+    }
     }    
     return(
         <div>
