@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import { updateStatus, type Todo } from "../utils/TodoDataSLice";
+import { deleteTodo, updateStatus, type Todo } from "../utils/TodoDataSLice";
 
 const TodoList =()=>{
     
@@ -9,6 +9,9 @@ const TodoList =()=>{
     const handleClick=(id : number)=>{
         dispatch(updateStatus(id))
     }
+    const handleDeleteTodo = (id : number)=>{       
+    dispatch(deleteTodo(id))
+}
 
     return(
         <div className="p-1 m-2" >
@@ -19,15 +22,17 @@ const TodoList =()=>{
                 </div>):(
                     todo.map((t : Todo)=>(
                         <div key={t.id}>
-                            <div className="flex" >
+                            <div className="flex items-center" >
                             <input 
                             className={"p-1 mr-2" } 
                             type="checkbox"
+                            checked = {t.status == "green"}
                             onChange={()=>handleClick(t.id)}
                             />
                             <p className={t.status == "green" ? "line-through text-gray-400" : ""}  >
                             {t.text}
                             </p>
+                            <button className="p-1 m-1 bg-red-300" onClick={()=>handleDeleteTodo(t.id)}>REMOVE</button>
                             </div>
                         </div>
                     ))

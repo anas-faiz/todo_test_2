@@ -26,10 +26,17 @@ const TodoDataSlice = createSlice({
             if(todo){
                 todo.status = "green"
             }
+        },
+        deleteTodo:(state,action)=>{
+            const todo = state.value.find(t=>t.id == action.payload);
+
+            if(todo){
+                state.value = state.value.filter(t=> t.id !== todo.id)
+            }
         }
     }
 })
 
-export const {addData,updateStatus} = TodoDataSlice.actions
+export const {addData,updateStatus,deleteTodo} = TodoDataSlice.actions
 
 export default TodoDataSlice.reducer
