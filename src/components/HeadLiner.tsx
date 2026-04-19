@@ -5,8 +5,7 @@ const HeadLiner = ()=>{
     return(
         <div className="flex w-1/2 items-center justify-between">
             <TotalTodoCount/> 
-            <CompletedTodoCount/>
-            
+            <CompletedTodoCount/>            
         </div>
     )
 }
