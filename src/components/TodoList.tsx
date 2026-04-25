@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 const TodoList =()=>{    
     const dispatch = useDispatch()
-    const todo = useSelector(store => store.Todo.value);
+    const {value,filter} = useSelector(store => store.Todo);
 
     const handleClick=(id : number)=>{
         dispatch(updateStatus(id))
@@ -13,17 +13,23 @@ const TodoList =()=>{
     dispatch(deleteTodo(id))
     }
     useEffect(()=>{
-        localStorage.setItem("todos",JSON.stringify(todo))
-    },[todo])
+        localStorage.setItem("todos",JSON.stringify(value))
+    },[value])
+
+    const filteredTodos = value.filter( t => {
+        if(filter == "green") return t.status == "green"
+        if(filter == "red") return t.status == "red"
+        return true
+    })
 
     return(
         <div className="p-1 m-2" >
             {
-                todo.length == 0 ? 
+                filteredTodos.length == 0 ? 
                 ( <div>
                     Add Jobs
                 </div>):(
-                    todo.map((t : Todo)=>(
+                    filteredTodos.map((t : Todo)=>(
                         <div key={t.id}>
                             <div className="flex items-center" >
                             <input 

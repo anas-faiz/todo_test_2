@@ -7,11 +7,13 @@ import { loadTodo } from "./loadTodo";
     status: "green" | "red"
 }
 interface data{
-    value: Todo[]
+    value: Todo[],
+    filter: "all" | "green" | "red"
 }
 
 const initialState: data ={
-    value: loadTodo()
+    value: loadTodo(),
+    filter: "all"
 }
 
 const TodoDataSlice = createSlice({
@@ -25,7 +27,7 @@ const TodoDataSlice = createSlice({
             const todo = state.value.find(t => t.id == action.payload);
 
             if(todo){
-                todo.status = "green"
+                todo.status =  todo.status === "green" ? "red" : "green"
             }
         },
         deleteTodo:(state,action)=>{
@@ -34,10 +36,13 @@ const TodoDataSlice = createSlice({
             if(todo){
                 state.value = state.value.filter(t=> t.id !== todo.id)
             }
+        },
+        setFilter: (state,action)=>{
+            state.filter = action.payload
         }
     }
 })
 
-export const {addData,updateStatus,deleteTodo} = TodoDataSlice.actions
+export const {addData,updateStatus,deleteTodo,setFilter} = TodoDataSlice.actions
 
 export default TodoDataSlice.reducer
