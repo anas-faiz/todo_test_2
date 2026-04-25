@@ -11,7 +11,7 @@ const TodoList =()=>{
     }
     const handleDeleteTodo = (id : number)=>{       
     dispatch(deleteTodo(id))
-}
+    }
     useEffect(()=>{
         localStorage.setItem("todos",JSON.stringify(todo))
     },[todo])

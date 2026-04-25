@@ -1,11 +1,13 @@
 import { CompletedTodoCount } from "./CompletedTodoCount"
+import PendingTodo from "./PendingTodo"
 import TotalTodoCount from "./TotalTodoCount"
 
 const HeadLiner = ()=>{
     return(
-        <div className="flex w-1/2 items-center justify-between">
+        <div className="flex items-center justify-between">
             <TotalTodoCount/> 
-            <CompletedTodoCount/>            
+            <CompletedTodoCount/>
+            <PendingTodo/>            
         </div>
     )
 }
