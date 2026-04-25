@@ -10,8 +10,8 @@ const TotalTodoCount= ()=>{
         <div>
             <p className={
                 filter == "all" ? 
-                "border rounded-full p-1 mt-1 bg-blue-500 text-white " : 
-                "border rounded-full p-1 mt-1"
+                "border rounded-full p-1 mt-1 bg-blue-500 text-white hover:cursor-pointer " : 
+                "border rounded-full p-1 mt-1 hover:cursor-pointer"
             } 
                 onClick={()=>dispatch(setFilter("all"))}
             >

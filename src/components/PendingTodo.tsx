@@ -14,8 +14,8 @@ const PendingTodo = ()=>{
         <div>
             <p className={
                 filter == "red" ? 
-                "border rounded-full p-1 mt-1 bg-blue-500 text-white " : 
-                "border rounded-full p-1 mt-1"
+                "border hover:cursor-pointer rounded-full p-1 mt-1 bg-blue-500 text-white " : 
+                "border rounded-full p-1 mt-1 hover:cursor-pointer"
             } 
             onClick={()=>dispatch(setFilter("red"))}
             >

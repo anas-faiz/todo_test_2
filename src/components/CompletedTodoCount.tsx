@@ -10,8 +10,8 @@ export const CompletedTodoCount = () => {
     <div>
         <p className={
                 filter == "green" ? 
-                "border rounded-full p-1 mt-1 bg-blue-500 text-white " : 
-                "border rounded-full p-1 mt-1"
+                "border rounded-full hover:cursor-pointer p-1 mt-1 bg-blue-500 text-white " : 
+                "border rounded-full p-1 mt-1 hover:cursor-pointer "
             } 
             onClick={()=>dispatch(setFilter("green"))} 
             >
